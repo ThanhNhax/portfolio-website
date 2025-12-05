@@ -34,4 +34,4 @@ jobs:
 
         # Deploy lên Vercel Production
       - name: Deploy to Vercel
-        run: npx vercel --prod --yes --token=${{ secrets.TOKEN_VERCEL }}
+        run: npx vercel --prod --yes --scope=thanhnhax --token=${{ secrets.TOKEN_VERCEL }}
