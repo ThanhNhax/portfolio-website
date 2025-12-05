@@ -28,10 +28,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-        # Chạy build để kiểm tra lỗi
-      - name: Build project
-        run: npm run build
+      # BUILD BẰNG VERCEL (CHUẨN CHO APP ROUTER)
+      - name: Build with Vercel
+        run: |
+          npx vercel pull --yes --environment=production --token=${{ secrets.TOKEN_VERCEL }}
+          npx vercel build --prod --token=${{ secrets.TOKEN_VERCEL }}
 
-        # Deploy lên Vercel Production
+      # DEPLOY
       - name: Deploy to Vercel
-        run: npx vercel --prod --yes --token=${{ secrets.TOKEN_VERCEL }}
+        run: |
+          npx vercel deploy --prebuilt --prod --token=${{ secrets.TOKEN_VERCEL }}
