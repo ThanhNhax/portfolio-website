@@ -31,8 +31,8 @@ jobs:
         run: |
           npx vercel build --prod \
             --token=${{ secrets.TOKEN_VERCEL }} \
-            --project-id=prj_jl9kX7MSWUS9Tj9VS3GO0Uiqh5oV \
-            --org-id=team_B7oVpgHxww1JYMrfu0ISwGSG
+            --project-id=${{ secrets.PROJECTID }} \
+            --org-id=${{ secrets.ORGID }}
 
       - name: Deploy to Vercel
         run: |
