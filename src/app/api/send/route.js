@@ -8,7 +8,7 @@ export const POST = async () => {
   try {
     const data = await resend.emails.send({
       from: fromEmial,
-      to: [''],
+      to: [''], 
       subject: 'Hello world!',
       react: (
         <>
