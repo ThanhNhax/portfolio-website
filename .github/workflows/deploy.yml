@@ -8,6 +8,11 @@ jobs:
   ci-cd:
     runs-on: ubuntu-latest
 
+    env:
+      RESEND_API_KEY: ${{ secrets.RESEND_API_KEY }}
+      FROM_EMAIL: ${{ secrets.FROM_EMAIL }}
+      VERCEL_OIDC_TOKEN: ${{ secrets.VERCEL_OIDC_TOKEN }}
+
     steps:
     # Lấy code từ GitHub
     - name: Checkout code
