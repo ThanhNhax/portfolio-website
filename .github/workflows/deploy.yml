@@ -1,8 +1,8 @@
-name: Next.js CI/CD to Vercel
+name: Next.js CI/CD to vercel
 
 on:
   push:
-    branches: ['master']
+    branches: ["master"]
 
 jobs:
   deploy:
@@ -20,13 +20,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # vercel pull KHÔNG dùng project-id trong CLI v49
       - name: Pull Vercel Environment
         run: |
           npx vercel pull --yes \
             --environment=production \
-            --token=${{ secrets.TOKEN_VERCEL }} \
-            --project-id=prj_jl9kX7MSWUS9Tj9VS3GO0Uiqh5oV \
-            --org-id=team_B7oVpgHxww1JYMrfu0ISwGSG
+            --token=${{ secrets.TOKEN_VERCEL }}
 
       - name: Build with Vercel
         run: |
